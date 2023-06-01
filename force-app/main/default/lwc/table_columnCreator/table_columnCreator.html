@@ -1,0 +1,20 @@
+<template>
+<template if:false={isLoading}>
+<template for:each={columns} for:item="col">
+<lightning-card icon-name="standard:portal_roles_and_subordinates" key={col.index} class="slds-p-around_medium" title={col.columnName}>
+   <lightning-layout>
+       <lightning-layout-item class="slds-p-around_small" size="6">
+           <lightning-input key={col.index} data-key={col.index} value={col.name} type="text" required="true" label="Column Name" onchange={handleNameChange}></lightning-input>
+       </lightning-layout-item>
+       <lightning-layout-item class="slds-p-around_small" size="6">
+        <lightning-combobox required="true" data-key={col.index} value={col.type} key={col.index} label="Type" options={typeOptions} onchange={handleTypeSelect}></lightning-combobox>
+       </lightning-layout-item>
+   </lightning-layout>
+</lightning-card>
+</template>
+<lightning-button label="Add Column" variant="brand" onclick={addColumn}></lightning-button>
+</template>
+<template if:true={isLoading}>
+<lightning-spinner size="Large"></lightning-spinner>
+</template>
+</template>

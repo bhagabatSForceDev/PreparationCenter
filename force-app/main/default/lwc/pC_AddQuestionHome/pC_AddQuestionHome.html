@@ -1,58 +1,75 @@
 <template>
-    <div class="container slds-card">
-        <!-- <div class="header-cls">
-            ADD QUESTIONS HOME
-        </div> -->
-        <div class="body-cls">
-            <div class="summary viewblock" data-value={isEdit}>
-                <div class="edit">
-                    <lightning-input type="text" label="Summary" placeholder="Enter Summary" value={summary} onchange={handleChange}></lightning-input>
-                </div>
-                <div class="view">
-                    {summary}
-                </div>
+<div class="container slds-card">
+    <!-- <div class="header-cls">
+        ADD QUESTIONS HOME
+    </div> -->
+<template if:false={isError}>
+    <div class="body-cls">
+        <div class="summary viewblock" data-value={isEdit}>
+            <div class="edit">
+                <lightning-input type="text" label="Summary" placeholder="Enter Summary" value={summary} onchange={handleChange}></lightning-input>
             </div>
-            <div class="question viewblock" data-value={isEdit}>
-                <div class="edit">
-                    <lightning-input-rich-text variant="bottom-toolbar" label="Question" placeholder="Enter Question" value={question} onchange={handleChange}></lightning-input-rich-text>
-                </div>
-                <div class="view">
-                    <lightning-formatted-rich-text value={question}></lightning-formatted-rich-text>
-                </div>
-            </div>
-            <div class="answer viewblock" data-value={isEdit}>
-                <div class="edit">
-                    <lightning-input-rich-text variant="bottom-toolbar"  label="Answer" placeholder="Enter Answer" value={answer} onchange={handleChange}></lightning-input-rich-text>
-                </div>
-                <div class="view">
-                    <lightning-formatted-rich-text value={answer}></lightning-formatted-rich-text>
-                </div>
-            </div>
-            <div class="footer viewblock" data-value={isEdit}>
-                <div class="button-grp">
-                    <button class="btn-cls green edit" onclick={handleSave}>Save</button>
-                    <button class="btn-cls green edit">Save and add next</button>
-                    <button class="btn-cls cancel edit">Cancel</button>
-                    <button class="btn-cls modify view" onclick={handleEdit}>
-
-                        <svg class="modsvg" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m3.99 16.854-1.314 3.504a.75.75 0 0 0 .966.965l3.503-1.314a3 3 0 0 0 1.068-.687L18.36 9.175s-.354-1.061-1.414-2.122c-1.06-1.06-2.122-1.414-2.122-1.414L4.677 15.786a3 3 0 0 0-.687 1.068zm12.249-12.63 1.383-1.383c.248-.248.579-.406.925-.348.487.08 1.232.322 1.934 1.025.703.703.945 1.447 1.025 1.934.058.346-.1.677-.348.925L19.774 7.76s-.353-1.06-1.414-2.12c-1.06-1.062-2.121-1.415-2.121-1.415z"/></svg></button>
-                
-                    <button class="btn-cls delete view" onclick={handleDelete}>
-                        <!-- <svg class="delsvg" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M4 7H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M6 7V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V7"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg> -->
-                            <svg class="delsvg" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M4 7H20" stroke="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
-                    </button>
-                    </div>
+            <div class="view">
+                {summary}
             </div>
         </div>
+        <div class="question viewblock" data-value={isEdit}>
+            <div class="edit">
+                <lightning-input-rich-text variant="bottom-toolbar" formats={formats} label="Question" placeholder="Enter Question" value={question} onchange={handleChange}></lightning-input-rich-text>
+            </div>
+            <div class="view">
+                <lightning-formatted-rich-text value={question}></lightning-formatted-rich-text>
+            </div>
+        </div>
+        <div class="answer viewblock" data-value={isEdit}>
+            <div class="edit">
+                <lightning-input-rich-text variant="bottom-toolbar" formats={formats}  label="Answer" placeholder="Enter Answer" value={answer} onchange={handleChange}>
+                    <lightning-rich-text-toolbar-button-group
+                        slot="toolbar"
+                        aria-label="First group"
+                    >
+                        <lightning-rich-text-toolbar-button
+                            icon-name="utility:video"
+                            icon-alternative-text="video"
+                            onclick={attachYoutube}
+                        ></lightning-rich-text-toolbar-button>
+
+                        </lightning-rich-text-toolbar-button-group>
+                </lightning-input-rich-text>
+            </div>
+            <div class="view">
+                <lightning-formatted-rich-text value={answer}></lightning-formatted-rich-text>
+            </div>
+        </div>
+        <div class="footer viewblock" data-value={isEdit}>
+            <div class="button-grp">
+                <button class="btn-cls green edit" onclick={handleSave}>Save</button>
+                <button class="btn-cls green edit">Save and add next</button>
+                <button class="btn-cls cancel edit">Cancel</button>
+                <button class="btn-cls modify view" onclick={handleEdit}>
+
+                    <svg class="modsvg" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="m3.99 16.854-1.314 3.504a.75.75 0 0 0 .966.965l3.503-1.314a3 3 0 0 0 1.068-.687L18.36 9.175s-.354-1.061-1.414-2.122c-1.06-1.06-2.122-1.414-2.122-1.414L4.677 15.786a3 3 0 0 0-.687 1.068zm12.249-12.63 1.383-1.383c.248-.248.579-.406.925-.348.487.08 1.232.322 1.934 1.025.703.703.945 1.447 1.025 1.934.058.346-.1.677-.348.925L19.774 7.76s-.353-1.06-1.414-2.12c-1.06-1.062-2.121-1.415-2.121-1.415z"/></svg></button>
+            
+                <button class="btn-cls delete view" onclick={handleDelete}>
+                    <!-- <svg class="delsvg" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 7H20" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M6 7V18C6 19.6569 7.34315 21 9 21H15C16.6569 21 18 19.6569 18 18V7"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z"  stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg> -->
+                        <svg class="delsvg" width="25px" height="25px" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 7H20" stroke="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M6 10L7.70141 19.3578C7.87432 20.3088 8.70258 21 9.66915 21H14.3308C15.2974 21 16.1257 20.3087 16.2986 19.3578L18 10" stroke="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9 5C9 3.89543 9.89543 3 11 3H13C14.1046 3 15 3.89543 15 5V7H9V5Z" stroke="transparent" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                </button>
+                </div>
+        </div>
     </div>
-    
-    
+</template>
+<template if:true={isError}>
+    COULD NOT FIND THE QUESTION YOU WERE LOOKING FOR ....
+</template>
+</div>
+
+
 </template>
