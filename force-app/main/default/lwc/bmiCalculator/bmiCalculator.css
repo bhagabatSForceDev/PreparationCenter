@@ -1,0 +1,40 @@
+:host(){
+    --dark-blue: #0b0d21;
+    --light-white: #fafafa;
+    --light-blue: #4f7df9;
+    --light-pink: #e91e63;
+    --light-dark: #1d1e33;
+    --grey-shadow: #9c9191;
+}
+
+.box{
+    max-width: 100vh;
+    text-align: center;
+    border: solid black 1px;
+    margin: auto;
+    padding: 1rem;
+    background: var(--dark-blue);
+    color: var(--light-white);
+    border-radius: 2rem;
+    box-shadow: -4px 4px 4px 1px var(--grey-shadow);
+}
+
+h1{
+    font-weight: bold;
+    padding: 20px 0;
+    font-size: 2rem;
+}
+
+.info-text{
+    background: var(--light-dark);
+    padding: 1rem;
+    margin: 1rem 0 0 0;
+    border-radius: 2rem;
+}
+
+.calc-btn{
+    background: var(--light-pink);
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    margin: 1rem 0 0 0;
+}

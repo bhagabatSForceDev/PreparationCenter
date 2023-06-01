@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <template if:false={showSpinner}>
+        TABLE BEING VIEWED IS: {tableId}
+
+        <p>columns: {columns}</p>
+        <p>rows: {rowData}</p>
+        <lightning-datatable key-field="index" data={rowData} columns={columns} hide-checkbox-column onsave={handleSave}></lightning-datatable>
+        <lightning-button label="Add Row" onclick={addRow} variant="brand"></lightning-button>
+        </template>
+        <template if:true={showSpinner}>
+            <lightning-spinner size="small"></lightning-spinner>
+        </template>
+    </lightning-card>
+</template>

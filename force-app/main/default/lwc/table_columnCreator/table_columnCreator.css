@@ -1,0 +1,5 @@
+:host{
+    --sds-c-card-spacing-inline-start: 1rem;
+    --sds-c-card-spacing-inline-end: 1rem;
+    --sds-c-card-header-spacing-inline-start: 0rem;
+}
