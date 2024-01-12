@@ -1,0 +1,41 @@
+<template>
+    <div class={containerClass} data-priority={taskRec.Priority__c}>
+    <template if:false={isEdit}>
+        <template if:false={isTaskEdit}>
+            <div class="center-cls"  onclick={handleSelect}>
+                <lightning-formatted-rich-text value={taskRec.Task__c}></lightning-formatted-rich-text>
+            </div>
+        </template>
+    </template>
+    <template if:true={isEdit}>
+        <template if:false={isTaskEdit}>
+        <div class="edit-cmp">
+            <div class="left" data-status={taskRec.Status__c}>
+                <lightning-button-icon icon-name="utility:chevronleft" value="left" onclick={handleStatusChange} alternative-text="Previous Status" title="Previous Status"></lightning-button-icon>
+            </div>
+            <div class="center" onclick={handleDblClick}>
+                <lightning-formatted-rich-text value={taskRec.Task__c}></lightning-formatted-rich-text>
+            </div>
+            <div class="right" data-status={taskRec.Status__c}>
+                <lightning-button-icon icon-name="utility:chevronright" value="right" onclick={handleStatusChange}  alternative-text="Next Status" title="Next Status"></lightning-button-icon>
+            </div>
+        </div>
+    </template>
+    </template>
+    <template if:true={isTaskEdit}>
+        <div class="edit-cmp">
+            
+            <div class="center-edit">
+                <lightning-input type="text" label-hidden value={taskRec.Task__c} onchange={handleTextChange}></lightning-input>
+            </div>
+            <div class="save">
+                <lightning-button-icon icon-name="utility:save" value="save" onclick={handleSave} alternative-text="Save" title="Save"></lightning-button-icon>
+            </div>
+            <div class="delete">
+                <lightning-button-icon icon-name="utility:delete" value="delete" onclick={handleDelete}  alternative-text="Delete" title="Delete"></lightning-button-icon>
+            </div>
+        </div>
+    </template>
+    </div>
+    
+</template>
