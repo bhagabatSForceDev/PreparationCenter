@@ -1,0 +1,52 @@
+<template>
+    <div class="tabset-cls" data-is-large={isLargeDevice}>
+    <lightning-tabset variant="vertical">
+        <lightning-tab label="Summary">
+            <c-p-f_-summary summary-text={contactDetails.Work_Summary__c}></c-p-f_-summary>
+        </lightning-tab>
+        <lightning-tab label="Work Experience">
+            <c-p-f_-work-exp></c-p-f_-work-exp>
+        </lightning-tab>
+        <lightning-tab label="Skills">
+            <c-pf_skill-component></c-pf_skill-component>
+        </lightning-tab>
+        <lightning-tab label="Education">
+            <c-pf_education></c-pf_education>
+        </lightning-tab>
+        <lightning-tab label="Certifications">
+            <c-pf_certification-cmp></c-pf_certification-cmp>
+        </lightning-tab>
+        <lightning-tab label="Personal Projects">
+            <c-p-f_-project-component></c-p-f_-project-component>
+        </lightning-tab>
+        <lightning-tab label="Others">
+            OTHERS GOES HERE
+        </lightning-tab>
+    </lightning-tabset>
+</div>
+<div class="accordion-cls" data-is-large={isLargeDevice}>
+<lightning-accordion active-section-name="Summary">
+    <lightning-accordion-section name="Summary" label="Summary" class="acc-section">
+        <c-p-f_-summary summary-text={contactDetails.Work_Summary__c}></c-p-f_-summary>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="Work" label="Work Experience" class="acc-section">
+        <c-p-f_-work-exp></c-p-f_-work-exp>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="Skill" label="Skills" class="acc-section">
+        <c-pf_skill-component></c-pf_skill-component>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="Education" label="Education" class="acc-section">
+        <c-pf_education></c-pf_education>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="Certification" label="Certifications" class="acc-section">
+        <c-pf_certification-cmp></c-pf_certification-cmp>
+    </lightning-accordion-section>
+    <lightning-accordion-section name="Project" label="Personal Projects" class="acc-section">
+        PERSONAL PROJECT COMPONENT GOES HERE
+    </lightning-accordion-section>
+    <lightning-accordion-section name="Other" label="Others" class="acc-section">
+        OTHERS GOES HERE
+    </lightning-accordion-section>
+</lightning-accordion>
+</div>
+</template>

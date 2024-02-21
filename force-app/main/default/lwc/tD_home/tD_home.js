@@ -18,6 +18,7 @@ export default class TD_home extends LightningElement {
     isLoading=false;
     listName;
     chartVal;
+    isError=false;
 
     options=[{"label":"Low","value":"Low"},
     {"label":"Medium","value":"Medium"},
@@ -123,6 +124,7 @@ export default class TD_home extends LightningElement {
             this.chartAttr();
             this.isLoading=false;
         }else if(result.error){
+            this.isError=true;
             console.error('ERROR @ TD_home:'+JSON.stringify(result.error));
         }
     }
@@ -179,12 +181,14 @@ export default class TD_home extends LightningElement {
         // const recordDefaults = this.tdlCreateDefaults.data.record;
         // const recordInput = generateRecordInputForCreate(recordDefaults, tdlObjectInfo);
         // recordInput.fields['List_Name__c']=listName;
+        if(listName){
         createList({listName: listName}).then((id)=>{
             console.log('CREATED RECORD:'+JSON.stringify(id));
             window.open('/prepcenter/to-do-list?id='+id);
         }).catch(error=>{
             console.error(JSON.stringify(error));
         });
+        }
     }
 
 

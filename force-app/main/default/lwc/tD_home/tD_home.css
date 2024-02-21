@@ -32,8 +32,7 @@
     box-shadow: 2px 2px 8px black;
     padding: 1rem;
     border-radius: 0.5rem;
-    min-height: 67vh;
-    max-height: 67vh;
+    height: 70vh;
 }
 
 .task-cls::-webkit-scrollbar {

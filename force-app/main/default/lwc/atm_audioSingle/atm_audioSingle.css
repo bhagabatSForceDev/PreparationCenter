@@ -1,0 +1,80 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.audio-player{
+    
+    padding: 1rem;
+    background-color: #030342;
+    color: #ffff;
+    font-weight: 600;
+    font-size: 1.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 3rem;
+    text-align: center;
+    margin: 1rem;
+    cursor: pointer;
+    border: 2px solid white;
+    box-shadow: inset 0px 0px 8px 2px white;
+}
+
+.is-playing{
+    background-color: #ffff;
+    color: #030342;
+    box-shadow: 1px 1px 4px 0px black;
+}
+
+.icon-cls{
+    height: 50px;
+    width: 50px;
+    
+}
+
+.is-playing .icon-cls{
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes pulse {
+    0% {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+
+    50% {
+        -webkit-transform: scale3d(1.1,1.1,1.1);
+        transform: scale3d(1.1,1.1,1.1);
+    }
+
+    to {
+        -webkit-transform: scaleX(1);
+        transform: scaleX(1)
+    }
+}
+
+.animate__pulse {
+    -webkit-animation-name: pulse;
+    animation-name: pulse;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out
+}
+
+.show{
+    display: block;
+}
+
+.hide{
+    display: none;
+}
+
+.volume-slider{
+    width: 4rem;
+    height: 2px;
+}

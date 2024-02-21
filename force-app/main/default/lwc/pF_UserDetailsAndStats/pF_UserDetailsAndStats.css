@@ -1,0 +1,21 @@
+:host{
+    --darkBluePF: #032D60;
+    --brandBluePF: #0176d3;
+    --shadowPF: #000000a8;
+    --largeText: 1.5rem;
+    --largerText: 2.2rem;
+}
+
+.box-cls{
+    box-shadow: 2px 2px 8px #0000009e;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    background: var(--darkBluePF);
+    color: #ffff;
+}
+
+.img-cls{
+    height: 20vh;
+    width: 20vh;
+}

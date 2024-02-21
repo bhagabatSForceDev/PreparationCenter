@@ -1,0 +1,16 @@
+:host{
+    --slds-g-color-neutral-base-30: #ffff;
+}
+
+p{
+    color: #ffff;
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.timer-section{
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    justify-content: center;
+}

@@ -1,0 +1,34 @@
+<template>
+    <!-- PROJECT ID is {projectId}
+    <h1>{projectDetails.Name}</h1>
+    <iframe width="853" height="480" src={youtubeUrl} allowfullscreen></iframe>
+    <lightning-button variant="Brand" label="Demo Here" onclick={handleDemo}></lightning-button>
+    <lightning-formatted-rich-text label="Description" value={projectDetails.Project_Description__c}></lightning-formatted-rich-text> -->
+    <div class="container slds-grid slds-wrap">
+        <div class="slds-size_6-of-6">
+            <!-- TITLE COMPONENT -->
+            <h1>{projectDetails.Name}</h1>
+        </div>
+        <div class="slds-size_3-of-6">
+            <!-- DESCRIPTION COMPONENT -->
+            <div class="desc-box">
+                <lightning-formatted-rich-text label="Description" value={projectDetails.Project_Description__c}></lightning-formatted-rich-text>
+            </div>
+        </div>
+        <div class="slds-size_3-of-6">
+            
+            <div class="col-flex">
+                <!-- YOUTUBE COMPONENT -->
+            <template if:true={isYT}>
+            <div class="yt-box">
+                <iframe class="yt-cls" src={youtubeUrl} allowfullscreen></iframe>
+            </div>
+            </template>
+                <!-- DEMO BUTTON -->
+            <template if:true={isBtn}>
+                <lightning-button class="slds-text-heading_large" variant="Brand" label="Demo Here" onclick={handleDemo}></lightning-button>
+            </template>
+            </div>
+        </div>
+    </div>
+</template>

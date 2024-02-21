@@ -5,6 +5,7 @@
     background: #ffff;
     border-radius: 0.35rem;
     box-shadow: 1px 1px 4px #00000054;
+    width: 93%;
 }
 
 .container[data-priority="High"]{

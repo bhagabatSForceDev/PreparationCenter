@@ -1,0 +1,43 @@
+<template>
+    <div class="container">
+        <div class="box-cls">
+          <template lwc:if={isLoading}>
+            <lightning-spinner size="small"></lightning-spinner>
+          </template>
+          <template lwc:else>
+            <lightning-record-view-form object-api-name="Contact"
+            record-id="0032w000019fVluAAE" density="comfy" onload={handleLoad}>
+          <lightning-layout multiple-rows="true">
+              <lightning-layout-item size="12" large-device-size="2" medium-device-size="4" flexibility="auto">
+                  <img class="img-cls" src={rankUrl}>
+              </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="3" medium-device-size="4" flexibility="auto">
+                  <lightning-output-field class="output-field" field-name="MobilePhone"></lightning-output-field>
+              </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="3" medium-device-size="4" flexibility="auto">
+                <lightning-output-field class="output-field" field-name="Email"></lightning-output-field>
+              </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="3" medium-device-size="4" flexibility="auto">
+                <div class="output-field slds-form-element slds-form-element_stacked">
+                  <span class="slds-form-element__label">Address</span>
+                  <lightning-output-field variant="label-hidden" class="output-field" field-name="OtherAddress"></lightning-output-field>
+                </div>
+                </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="2" medium-device-size="4" flexibility="auto" padding="around-small">
+                  <lightning-button label="Resume" variant="brand" icon-name="utility:document_preview"></lightning-button>
+              </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="3" medium-device-size="4" flexibility="auto">
+                <lightning-output-field class="output-field" field-name="Superbadges__c"></lightning-output-field>
+              </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="3" medium-device-size="4" flexibility="auto">
+                <lightning-output-field class="output-field" field-name="Points__c"></lightning-output-field>
+              </lightning-layout-item>
+              <lightning-layout-item size="12" large-device-size="3" medium-device-size="4" flexibility="auto">
+                <lightning-output-field class="output-field" field-name="Title"></lightning-output-field>
+              </lightning-layout-item>
+          </lightning-layout>
+        </lightning-record-view-form>
+      </template>  
+        </div>
+    </div>
+</template>

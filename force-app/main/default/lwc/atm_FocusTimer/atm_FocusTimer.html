@@ -1,0 +1,13 @@
+<template>
+    <template if:false={foundTime}>
+    <div class="timer-section">
+    <p>Stay Focused for:</p>
+    <lightning-input class="input" type="number" variant="label-hidden" placeholder="in minutes..(1 - 120)" data-id="focusMinutes" min="1" max="120" onblur={handleBlur}></lightning-input>
+    <lightning-button variant="neutral" label="Start" onclick={handleTimerStart}></lightning-button>
+    </div>
+    </template>
+    <template if:true={foundTime}>
+        <p>START TIMER HERE ... {timeHours}:{timeMinutes}:{timeSeconds}</p>
+        <lightning-button variant="Error" label="Cancel" onclick={handleCancel}></lightning-button>
+    </template>
+</template>

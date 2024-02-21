@@ -1,0 +1,25 @@
+.proj-card{
+    height: 5rem;
+    text-align: center;
+    display: flex;
+    border-radius: 1rem;
+    box-shadow: 1px 1px 6px black;
+    background: #032d60;
+    color: #ffff;
+    font-size: 1.3rem;
+    font-weight: 600;
+    margin: 0.5rem;
+    width: 45%;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.proj-name{
+    margin: auto;
+}
+
+.proj-card:hover{
+    box-shadow: none;
+    background: #06489a;
+    cursor: pointer;
+    transform: scale(1.02);
+}

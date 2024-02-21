@@ -1,0 +1,18 @@
+<template>
+    <template if:true={isData}>
+    <lightning-card class="slds-p-around_small" title="TODAY'S EVENTS" variant="narrow" icon-name="standard:opportunity">
+        <lightning-button-icon  icon-name="utility:add" variant="border-filled" alternative-text="Add Event" onclick={handleAdd} slot="actions"></lightning-button-icon>
+        <lightning-layout class="slds-p-around_small slds-grid slds-wrap" title="TODAY EVENTS">
+        <!-- <template for:each={todayEvents} for:item="item">
+            <lightning-layout-item size=12 class="slds-col-size" key={item.summary} padding="around-small">
+                <span style="font-size: 1.2rem;font-weight: 500">{item.summary}</span> ({item.xstart.dateString} - {item.xend.dateString})
+            </lightning-layout-item>
+        </template> -->
+        <lightning-datatable columns={columns} data={todayEvents} key-field="id" hide-checkbox-column></lightning-datatable>
+    </lightning-layout>
+</lightning-card>
+</template>
+<template if:false={isData}>
+    CALENDAR LOADING ....
+</template>
+</template>

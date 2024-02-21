@@ -1,4 +1,5 @@
 <template>
+    <template if:false={isError}>
     <template if:true={isRecordId}>
         <div class="create-task">
             <lightning-input label="Task Name" placeholder="Enter Task Name ..." data-id="TaskName" tabindex="0"></lightning-input>
@@ -42,7 +43,13 @@
     </template>
 </template>
 <template if:false={isRecordId}>
-    <lightning-input label="List Name" placeholder="Enter List Name ..." data-id="ListName"></lightning-input>
+    <lightning-input label="List Name" placeholder="Enter List Name ..." data-id="ListName" required="true"></lightning-input>
     <lightning-button label="Create List" onclick={handleCreateList}></lightning-button>
+</template>
+</template>
+<template if:true={isError}>
+    <lightning-card>
+        <div class="slds-p-around_medium">COULD NOT FIND WHAT YOU WERE LOOKING FOR ..</div>
+    </lightning-card>
 </template>
 </template>

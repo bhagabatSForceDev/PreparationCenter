@@ -1,0 +1,89 @@
+<template>
+    <div
+    class="slds-timeline__item_expandable slds-timeline__item_task_changed slds-is-open"
+    >
+    <span class="slds-assistive-text">task</span>
+    <div class="slds-media">
+        <div class="slds-media__figure">
+        <button
+            class="slds-button slds-button_icon"
+            title="Toggle details for Review proposals for EBC deck with larger team and have marketing review this"
+            aria-controls="task-item-expanded-65"
+            aria-expanded="true"
+        >
+            
+        </button>
+        <div
+            class="slds-icon_container slds-icon-standard-task slds-timeline__icon"
+            title="task"
+        >
+            <lightning-icon icon-name="standard:employee_organization" size="small"></lightning-icon>
+        </div>
+        </div>
+        <div class="slds-media__body">
+        <div
+            class="slds-grid slds-grid_align-spread slds-timeline__trigger"
+        >
+            <div
+            class="slds-grid slds-grid_vertical-align-center slds-truncate_container_75 slds-no-space"
+            >
+            
+            <h3
+                class="slds-truncate title-cls"
+                title={title}
+            >
+                
+                <strong
+                    >{title} at {company}</strong
+                >
+                
+            </h3>
+            </div>
+            <div class="slds-timeline__actions slds-timeline__actions_inline">
+            <p class="slds-timeline__date">{fromDate} - {toDispDate}</p>
+            </div>
+        </div>
+        <article
+            class="slds-box slds-timeline__item_details slds-theme_shade slds-m-top_x-small slds-m-horizontal_xx-small slds-p-around_medium"
+            id="task-item-expanded-65"
+            aria-hidden="false"
+        >
+            <!-- <ul class="slds-list_horizontal slds-wrap">
+            <li
+                class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small"
+            >
+                <span class="slds-text-title slds-p-bottom_x-small"
+                >Name</span
+                >
+                <span
+                class="slds-text-body_medium slds-truncate"
+                title="Charlie Gomez"
+                >
+                <a href="#">Charlie Gomez</a>
+                </span>
+            </li>
+            <li
+                class="slds-grid slds-grid_vertical slds-size_1-of-2 slds-p-bottom_small"
+            >
+                <span class="slds-text-title slds-p-bottom_x-small"
+                >Related To</span
+                >
+                <span
+                class="slds-text-body_medium slds-truncate"
+                title="Tesla Cloudhub + Anypoint Connectors"
+                >
+                <a href="#">Tesla Cloudhub + Anypoint Connectors</a>
+                </span>
+            </li>
+            </ul> -->
+            <!-- <div> -->
+            <!-- <span class="slds-text-title">Description</span> -->
+            <p class="slds-p-around_x-small">
+                <lightning-formatted-rich-text value={details}></lightning-formatted-rich-text>
+            </p>
+            <!-- </div> -->
+        </article>
+        </div>
+    </div>
+    </div>
+</template>

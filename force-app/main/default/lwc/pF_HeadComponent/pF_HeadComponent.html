@@ -1,0 +1,32 @@
+<template>
+    <!-- THIS IS THE HEAD COMPONENT
+    <p>{textHeader}</p> -->
+    <div class="container">
+        <div class="primary-box slds-grid slds-wrap">
+            <div class="slds-large-size_1-of-4 slds-small-size_4-of-4 prof-cls">
+                <div class="pic-container">
+                <div class="profile-pic">
+                    <img src={profPic} alt="">
+                </div>
+                
+                </div>
+                
+            </div>
+            <div class="slds-large-size_3-of-4 slds-small-size_4-of-4 info-box">
+                <div class="description-box" lwc:dom="manual">
+                </div>
+                <div class="short-description">
+                {sampleShortDesc}    
+                </div>
+                <div class="icon-box">
+                    <template for:each={socialList} for:item="sc">
+                        <a href={sc.url} target="__self" key={sc.imgUrl}><img class="icon-cls" src={sc.imgUrl}></a>
+                    </template>
+                    <!-- <div class="toggle-sw">
+                        <lightning-input label="Dark Mode" type="toggle"></lightning-input>
+                    </div> -->
+                </div>
+                </div>   
+        </div>
+    </div>
+</template>

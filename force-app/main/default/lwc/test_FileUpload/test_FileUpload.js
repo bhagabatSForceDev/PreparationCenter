@@ -17,9 +17,6 @@ export default class Test_FileUpload extends LightningElement {
         readFileData({filedata: JSON.stringify(uploadedFiles[0])}).then((result)=>{
             console.log('INSIDE readFileData'+JSON.stringify(result));
             this.blobData=result;
-            
-        }).then(()=>{
-            let reader = new FileReader();
         }).catch((error)=>{
             console.error(JSON.stringify(error));
         })

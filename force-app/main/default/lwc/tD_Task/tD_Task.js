@@ -51,11 +51,11 @@ export default class TD_Task extends LightningElement {
         // const fields={};
         // fields[ID_FIELD.fieldApiName] = this.taskRec.Id;
         // fields[STATUS_FIELD.fieldApiName] = newStatus;
-        console.log('UPDATING TO: '+newStatus);
+        
         const fields={'Id':this.taskRec.Id,'Status__c':newStatus};
         const recInp={fields};
         updateRecord({recString: JSON.stringify(fields)}).then(()=>{
-            console.log('UPDATED CHECK NOW');
+            
             const updEvt=new CustomEvent("updated");
             this.dispatchEvent(updEvt);
             this.closeEdit();
@@ -73,7 +73,11 @@ export default class TD_Task extends LightningElement {
 
     handleTextChange(e){
         this.newText=e.detail.value;
+        if(e.detail.value != this.taskRec.Task__c){
         this.isTextChanged=true;
+        }else{
+        this.isTextChanged=false;    
+        }
     }
 
     handleSave(){
@@ -81,7 +85,7 @@ export default class TD_Task extends LightningElement {
         const recInp={fields};
         if(this.isTextChanged){
         updateRecord({recString: JSON.stringify(fields)}).then(()=>{
-            console.log('SAVED CHECK NOW');
+            
             const updEvt=new CustomEvent("updated");
             this.dispatchEvent(updEvt);
             this.closeEdit();
@@ -98,7 +102,7 @@ export default class TD_Task extends LightningElement {
     handleDelete(){
         
         deleteRecord({recId:this.taskRec.Id}).then(()=>{
-            console.log('DELETED CHECK NOW');
+            
             const updEvt=new CustomEvent("updated");
             this.dispatchEvent(updEvt);
         }).catch((error)=>{

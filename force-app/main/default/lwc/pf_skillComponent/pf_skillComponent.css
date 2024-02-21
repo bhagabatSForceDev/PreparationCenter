@@ -1,0 +1,37 @@
+:host{
+    --darkBluePF: #032D60;
+    --brandBluePF: #0176d3;
+    --slightBluePF: #5867e8;
+}
+
+.icon-style{
+    border-radius: 1rem;
+    box-shadow: 2px 2px 4px black;
+    width: fit-content;
+}
+
+.icon-style[data-value="High"]{
+    background-color: var(--darkBluePF);
+    color: #ffff;
+    text-shadow: 0 0 black;
+}
+
+.icon-style[data-value="Medium"]{
+    background-color: var(--brandBluePF);
+    color: #ffff;
+    text-shadow: 0 0 black;
+}
+.icon-style[data-value="Low"]{
+    background-color: var(--slightBluePF);
+    color: #ffff;
+    text-shadow: 0 0 black;
+}
+
+.card-body-cls{
+    display: flex;
+}
+
+h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}

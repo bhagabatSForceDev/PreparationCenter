@@ -15,14 +15,22 @@ export default class PC_AddQuestionHome extends LightningElement {
     @api questionNum;
     questionId;
     isError=false;
+    correctPage=false;
 
     
     
     formats=['font','size','bold','italic','underline','strike','list','indent','align','link','image','clean','table',
                 'header','color','background','code','code-block','script','blockquote','direction'];
 
+    connectedCallback(){
+        if(window.location.href.includes('question-home')||window.location.href.includes('?q=')){
+            this.correctPage=true;
+        }
+    }
+
     @wire(CurrentPageReference) pageStateRef(pageParams){
         console.log('pageParams: '+ JSON.stringify(pageParams));
+        
         if(pageParams){
             this.questionNum=pageParams.state?.q;
             if(this.questionNum){
