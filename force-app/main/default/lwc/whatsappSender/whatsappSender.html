@@ -1,0 +1,8 @@
+<template>
+    <lightning-card>
+        <lightning-combobox label="Message type" options={options} value={selectedOption} onchange={handleOptionSelect}></lightning-combobox>
+        <lightning-input type="text" label="Phone" onchange={handlePhoneChange} value={phoneNum}></lightning-input>
+        <lightning-input type="textarea" label="Message" onchange={handleTextChange} value={messageContent} placeholder="Enter message .."></lightning-input>
+        <lightning-button label="Send" type="submit" variant="brand" onclick={handleSubmit}></lightning-button>
+    </lightning-card>
+</template>

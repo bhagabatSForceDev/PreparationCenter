@@ -1,0 +1,130 @@
+:host{
+    --success-green: #0BC279;
+    --white: #fff;
+    --black: #000;
+    --hover-green: #08a969;
+    --hover-white: #efeaea;
+    --delete-red: #c00;
+    --modify-blue: #065fd4;
+}
+
+.container{
+    padding: 1rem;
+}
+
+/****HEADER****/
+
+
+/****BODY****/
+.viewblock[data-value=false] .edit{
+    display:none;
+}
+
+.viewblock[data-value=true] .edit{
+    display:block;
+}
+
+.viewblock[data-value=true] .view{
+    display:none;
+}
+
+.viewblock[data-value=false] .view{
+    display:block;
+}
+
+.summary{
+    opacity: 0.5;
+}
+
+.question{
+    border-bottom: 2px solid black;
+    margin: 1rem;
+}
+
+.answer{
+    margin: 1rem;
+    background-color: #f5f1f1;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 2px 3px 7px 0px #00000042;
+}
+
+/****FOOTER****/
+
+.button-grp{
+    justify-content: right;
+    display: flex;
+    margin-right: 10px;
+}
+
+.btn-cls{
+    border: none;
+    margin: 10px;
+    margin-right: 0px;
+    padding: 20px;
+    min-width: 70px;
+    min-height: 35px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+    line-height: 5px;
+    border-radius: 7px;
+    font-weight: 600;
+}
+
+.green{
+    color: var(--white);
+    background-color: var(--success-green);
+    transition: background-color 0.2s ease-in-out;
+    cursor: pointer;
+}
+
+.green:hover{
+    background-color: var(--hover-green);
+}
+
+.cancel{
+    background-color:var(--white);
+    color: var(--black);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: 1px solid var(--hover-white)
+}
+
+.cancel:hover{
+    background-color: var(--hover-white);
+}
+
+.modify,.delete{
+    background-color:var(--white);
+    color: var(--black);
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+    border: 1px solid var(--hover-white)
+}
+
+.delete:hover{
+    background-color:var(--delete-red);
+}
+
+
+.delete:not(:hover) .delsvg{
+    fill: var(--delete-red);
+    transition: fill 0.2s ease-in-out;
+}
+
+.delete:hover .delsvg{
+    fill: var(--white);
+}
+
+.modify:hover .modsvg{
+    fill: var(--white);
+}
+
+.modify:hover{
+    background-color:var(--modify-blue);
+}
+
+.modify:not(:hover) .modsvg{
+    fill: var(--modify-blue);
+    transition: fill 0.2s ease-in-out;
+}

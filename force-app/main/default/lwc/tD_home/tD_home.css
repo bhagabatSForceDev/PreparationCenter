@@ -1,0 +1,67 @@
+.create-task{
+    display:flex;
+}
+
+.create-task lightning-input{
+    width: 50%;
+    margin-right: 1rem;
+}
+
+.create-task lightning-combobox{
+    width: 30%;
+}
+
+.create-task lightning-button{
+    margin: 1.5rem;
+}
+
+.create-task > lightning-button > button{
+    width: 6rem;
+    height: 2rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 1rem;
+}
+
+.comp-cls{
+    
+    /* width: 32%; */
+    margin: 0 0.5rem 0.5rem 0.5rem;
+    background: #ffff;
+    box-shadow: 2px 2px 8px black;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    height: 70vh;
+}
+
+.task-cls::-webkit-scrollbar {
+    display: none;
+  }
+
+.task-cls{
+    /* height: 20rem; */
+    height: 46vh;
+    overflow-y: scroll;
+}
+
+.title-cls{
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding: 0 0 1rem 0.5rem;
+}
+
+.header-cls{
+    font-size: 1.5rem;
+    font-weight: 600;
+    /* padding: 0 0 1rem 0.5rem; */
+    margin-left: 1.5rem;
+    /* border: 1px solid black; */
+    width: fit-content;
+    /* padding: 1rem; */
+    margin: 1rem;
+    margin-left: 0.5rem;
+    padding: 0.5rem 1rem;
+    border-radius: 1.5rem;
+    box-shadow: 1px 1px 4px 0px #000000b5;
+}

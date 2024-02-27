@@ -1,0 +1,16 @@
+<template>
+    <template if:true={isLoading}>
+        Drive Upload in progress..
+        <lightning-spinner size="small" variant="brand"></lightning-spinner>
+    </template>
+    <template if:false={isLoading}>
+    <lightning-file-upload
+        label="Upload Files"
+        name="fileUploader"
+        accept={acceptedFormats}
+        onuploadfinished={handleUploadFinished}
+        multiple=false
+    >
+    </lightning-file-upload>
+</template>
+</template>

@@ -1,0 +1,32 @@
+<template>
+   <template if:true={isLoaded}>
+       
+    <lightning-card class="slds-p-around_small" icon-name="standard:bot_training">
+    <h1 slot="title">Tools</h1>
+    <div class="card-body-cls">
+        <template for:each={tools} for:item="item">
+            <div class="icon-style slds-p-around_x-small slds-m-around_x-small" key={item.Id} data-value={item.Proficiency__c}>{item.Name}</div>
+        </template>
+    </div>
+    </lightning-card>
+    <lightning-card heading-level="1" class="slds-p-around_small" icon-name="standard:skill_entity">
+    <h1 slot="title">Technical Skills</h1>    
+    <div class="card-body-cls">
+        <template for:each={technicalSkills} for:item="item">
+            <div class="icon-style slds-p-around_x-small slds-m-around_x-small" key={item.Id} data-value={item.Proficiency__c}>{item.Name}</div>
+        </template>
+    </div>
+    </lightning-card>
+    <lightning-card heading-level="1" class="slds-p-around_small" icon-name="standard:employee">
+    <h1 slot="title">Soft Skills</h1>    
+    <div class="card-body-cls">
+        <template for:each={softSkills} for:item="item">
+            <div class="icon-style slds-p-around_x-small slds-m-around_x-small" key={item.Id} data-value={item.Proficiency__c}>{item.Name}</div>
+        </template>
+    </div>
+    </lightning-card>
+   </template>
+   <template if:false={isLoaded}>
+       <lightning-spinner variant="small"></lightning-spinner>
+   </template>
+</template>

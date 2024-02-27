@@ -1,0 +1,26 @@
+<template>
+    <!-- THIS IS THE CERTIFICATION COMPONENT -->
+    <lightning-accordion class="acc-cls" allow-multiple-sections-open active-section-name={activeSections}>
+        <lightning-accordion-section name="SFCert" label="Salesforce Certifications">
+            <!-- This is Salesforce Certifications sections -->
+            <div class="cert-container">
+                <template for:each={sfCerts} for:item="sf">
+                    <div key={sf.Id} class="slds-p-around_medium cert-inner">
+                        <img class="img-cls" src={sf.iconUrl}></img><div class="cert-name">{sf.Name}</div>
+                    </div>
+                </template>
+            </div>
+            
+        </lightning-accordion-section>
+        <lightning-accordion-section class="acc-cls" name="OtherCert" label="Other Certifications">
+            <!-- This is Other Certifications sections -->
+            <div class="cert-container">
+            <template for:each={otherCerts} for:item="other">
+                <div key={other.Id} class="slds-p-around_medium cert-inner">
+                <img class="img-cls" src={other.iconUrl}></img><div class="cert-name">{other.Name}</div>
+                </div>
+            </template>
+        </div>
+        </lightning-accordion-section>
+    </lightning-accordion>
+</template>

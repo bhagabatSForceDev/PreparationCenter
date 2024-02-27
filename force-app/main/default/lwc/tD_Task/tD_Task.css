@@ -1,0 +1,82 @@
+.container{
+    /* border: 1px solid #443c3c9c; */
+    padding: 0.2rem;
+    margin: 0.7rem;
+    background: #ffff;
+    border-radius: 0.35rem;
+    box-shadow: 1px 1px 4px #00000054;
+    width: 93%;
+}
+
+.container[data-priority="High"]{
+    border-left: 5px solid #fa1201;
+}
+
+.container[data-priority="Medium"]{
+    border-left: 5px solid #FF9800;
+}
+
+.container[data-priority="Low"]{
+    border-left: 5px solid #4CAF50;
+}
+
+.complete-cls{
+    color: grey;
+    text-decoration: line-through;
+}
+
+.center-cls{
+    /* display:grid;
+    justify-content: center; */
+    text-align: center;
+}
+
+.center-edit{
+    width: 75%;
+    display: grid;
+    justify-content: center;
+    align-content: center;
+}
+
+
+.edit-cmp{
+    display: flex;
+}
+
+.edit-cmp .left{
+    width: 20%;
+    display: grid;
+    justify-content: left;
+}
+
+.edit-cmp .left[data-status="To Do"]{
+    width: 20%;
+    visibility: hidden;
+}
+
+.edit-cmp .center{
+    width: 60%;
+    text-align: center;
+    /* display: grid;
+    justify-content: center;
+    align-content: center; */
+}
+
+.edit-cmp .right{
+    width: 20%;
+    display: grid;
+    justify-content: right;
+}
+
+.edit-cmp .right[data-status="Complete"]{
+    width: 20%;
+    visibility: hidden;
+}
+
+.save,.delete{
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+}

@@ -1,0 +1,19 @@
+<template>
+    <!-- {defaultText} -->
+    <!-- <template if:true={isLoaded}> -->
+    <div class="title-cls">
+        <h1>ATMOSPHERE</h1>
+    <div class="audio-container slds-grid slds-wrap slds-gutters">
+    <div class="focus-timer slds col slds-size_3-of-3">
+        <c-atm_-focus-timer onfocuscomplete={handleFocusComplete}></c-atm_-focus-timer>
+    </div>
+    <template for:each={audioUrls} for:item="audio">
+        <div key={audio.key} class="audio-single slds-col slds-size_1-of-3">
+            <c-atm_audio-single audio-url={audio.url} audio-code={audio.code} img-url={audio.imgurl}></c-atm_audio-single>
+    </div>
+    </template>
+    </div>
+</div>
+<!-- </template> -->
+    
+</template>

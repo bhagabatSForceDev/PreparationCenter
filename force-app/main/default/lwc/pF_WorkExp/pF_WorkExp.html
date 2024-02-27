@@ -1,0 +1,18 @@
+<template>
+<ul class="slds-timeline">
+    <template for:each={passedOnList} for:item="work">
+        <li key={work.Id}>
+            <c-pf_-work-exp-sub lwc:spread={work}></c-pf_-work-exp-sub>
+        </li>
+    </template>
+<!-- <li>
+    <c-pf_-work-exp-sub></c-pf_-work-exp-sub>
+</li>
+<li>
+    <c-pf_-work-exp-sub></c-pf_-work-exp-sub>
+</li>
+<li>
+    <c-pf_-work-exp-sub></c-pf_-work-exp-sub>
+</li> -->
+</ul>
+</template>

@@ -1,0 +1,26 @@
+:host{
+    --darkBluePF: #032D60;
+    --brandBluePF: #0176d3;
+    --slightBluePF: #5867e8;
+}
+
+
+
+.slds-table thead th{
+    background: var(--darkBluePF);
+    color: #ffff;
+    font-size: 1.5rem;
+}
+
+.row-cls{
+    font-size: 1.2rem;
+    background: #ffff;
+}
+
+
+
+.slds-table:not(.slds-no-row-hover) tbody tr:hover>td,.slds-table:not(.slds-no-row-hover) tbody tr:hover>td div.row-cls{
+    background: var(--brandBluePF);
+    color: #ffff;
+    transform: scaleY(1.05);
+}

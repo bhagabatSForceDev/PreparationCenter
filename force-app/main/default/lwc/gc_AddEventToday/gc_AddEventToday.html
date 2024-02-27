@@ -1,0 +1,11 @@
+<template>
+    <lightning-modal-header label="Event Details"></lightning-modal-header>
+    <lightning-modal-body>
+        <lightning-input type="text" label="Summary" onchange={handleSummChange}></lightning-input>
+        <lightning-input type="datetime" label="Start Time" onchange={handleStartChange}></lightning-input>
+        <lightning-input type="datetime" label="End Time" onchange={handleEndChange}></lightning-input>
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Add" onclick={handleSave}></lightning-button>
+    </lightning-modal-footer>
+</template>

@@ -1,0 +1,36 @@
+<template>
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered" aria-label="Example table of Opportunities with striped rows">
+        <thead>
+        <tr class="slds-line-height_reset head-row">
+        <th class="" scope="col">
+        <div class="slds-truncate" title="Institution Name">Institution</div>
+        </th>
+        <th class="" scope="col">
+        <div class="slds-truncate" title="Education">Education</div>
+        </th>
+        <th class="" scope="col">
+        <div class="slds-truncate" title="Passing Date">Passing Date</div>
+        </th>
+        </tr>
+        </thead>
+        
+        
+        <tbody>
+        <template for:each={educationList} for:item="edu">
+        <tr key={edu.Id} class="slds-hint-parent">
+        <td data-label="Institution Name" scope="row">
+        <div class="slds-truncate row-cls" title={edu.Institution__c}>
+        {edu.Institution__c}
+        </div>
+        </td>
+        <td data-label="Education">
+        <div class="slds-truncate row-cls" title={edu.Name}>{edu.Name}</div>
+        </td>
+        <td data-label="Passing Date">
+        <div class="slds-truncate row-cls" title={edu.passingDate}>{edu.passingDate}</div>
+        </td>
+        </tr>
+        </template>
+        </tbody>
+        </table>
+</template>

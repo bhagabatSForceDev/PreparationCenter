@@ -1,0 +1,8 @@
+<template>
+    <template if:false={isLoaded}>
+        IMAGE IS LOADING ...
+    </template>
+    <template if:true={isLoaded}>
+        <img src={imgSrc} alt="Image preview" />
+    </template>
+</template>

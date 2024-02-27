@@ -1,0 +1,23 @@
+.audio-container{
+    width: 80vw;
+    margin: auto;
+    padding: 2rem;
+    box-shadow: 1px 2px 6px black;
+    border-radius: 1rem;
+    background: #030342;
+}
+
+.title-cls{
+    padding: 1rem;
+    min-height: 40rem;
+}
+
+h1{
+    font-size: 3rem;
+    color: #fff;
+    padding: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 2px 3px black;
+    margin-left: 3rem;
+    font-family: sans-serif;
+}

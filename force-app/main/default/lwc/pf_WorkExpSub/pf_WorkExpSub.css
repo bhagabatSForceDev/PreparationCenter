@@ -1,0 +1,17 @@
+.slds-timeline__item_task_changed:before{
+    background: #1b96ff;
+}
+
+.slds-timeline__item_expandable .slds-timeline__actions_inline .slds-timeline__date{
+    margin-bottom: 0;
+    border-radius: 1.5rem;
+    padding: 0.5rem;
+    background-color: #032d60;
+    color: #ffff;
+    box-shadow: 3px 2px 4px #0000004f;
+    font-size: 1rem;
+}
+
+.title-cls{
+    font-size: 1.5rem;
+}

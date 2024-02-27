@@ -1,0 +1,12 @@
+<template>
+    <!-- -------- THIS IS THE PROJECT COMPONENT ------------------- -->
+    <div class="slds-grid slds-wrap slds-gutters">
+    <template for:each={projList} for:item="proj">
+        
+            <div class="slds-col slds-size_1-of-3 proj-card" key={proj.Id} onclick={handleProjectClick} data-id={proj.Id}>
+                <div class="proj-name">{proj.Name}</div>
+            </div>
+        
+    </template>
+</div>
+</template>

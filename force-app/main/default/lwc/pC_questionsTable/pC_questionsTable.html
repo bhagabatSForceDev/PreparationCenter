@@ -1,0 +1,15 @@
+<template>
+    <lightning-card>
+        <lightning-layout class="slds-p-around_small">
+            <lightning-layout-item size="9">
+                <lightning-input type="search" onchange={handleSearch} placeholder="Search Questions.."></lightning-input>
+            </lightning-layout-item>
+            <lightning-layout-item class="slds-m-top_xx-small slds-p-around_medium" size="3">
+                <lightning-button label="Create Question" variant="brand" onclick={handleCreateQuestion}></lightning-button>
+            </lightning-layout-item>
+        </lightning-layout>
+        <lightning-datatable key-field="Id" data={data} columns={columns} onrowaction={handleRowAction}
+        hide-checkbox-column></lightning-datatable>
+    </lightning-card>
+    
+</template>

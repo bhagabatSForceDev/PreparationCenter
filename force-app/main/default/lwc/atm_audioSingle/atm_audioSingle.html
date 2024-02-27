@@ -1,0 +1,13 @@
+<template>
+    <div class="container">
+    <div class="audio-player" onclick={handlePlay}>
+        <img src={imgUrl} class="icon-cls">
+        <audio class="audio-cls" loop>
+            <source src={audioUrl} type="audio/mpeg">
+        </audio>
+    </div>
+    <template if:true={isPlaying}>
+    <input type="range" class="volume-slider" value="100" onchange={handleVolumeChange}>
+    </template>
+</div>
+</template>

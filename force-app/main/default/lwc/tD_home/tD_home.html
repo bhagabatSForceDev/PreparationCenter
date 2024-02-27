@@ -1,0 +1,55 @@
+<template>
+    <template if:false={isError}>
+    <template if:true={isRecordId}>
+        <div class="create-task">
+            <lightning-input label="Task Name" placeholder="Enter Task Name ..." data-id="TaskName" tabindex="0"></lightning-input>
+            <lightning-combobox label="Priority" value="Low" options={options} onchange={handlePickValSel} data-id="TaskPriority"></lightning-combobox>
+            <lightning-button label="Add" onclick={handleAddTask} variant="brand"></lightning-button>
+        </div>
+    <!-- <div class="chart-comp"><c-chart-j-s chart-val={chartVal}></c-chart-j-s></div> -->
+    <div class="header-cls">{listName}</div>
+    
+    <!-- <div class="comp-cls">NOTES COMP</div> -->
+    <div class="slds-grid slds-wrap">
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 comp-cls">
+            <div class="title-cls">TO DO ({todosize})</div>
+            <lightning-input type="search" class="search-cls" onchange={handleToDoChange}></lightning-input>
+            <div class="task-cls">
+            <template for:each={toDoList} for:item="task">
+                <c-t-d_-task task-rec={task} key={task.Id} data-id={task.Id} oncompsel={handleCompSel} onupdated={handleRefresh}></c-t-d_-task>
+            </template>
+        </div>
+        </div>
+        
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_4-of-12 comp-cls">
+            <div class="title-cls">IN PROGRESS ({inProgsize})</div>
+            <div class="task-cls">
+            <template for:each={inProgList} for:item="task">
+                <c-t-d_-task task-rec={task} key={task.Id} data-id={task.Id} oncompsel={handleCompSel} onupdated={handleRefresh}></c-t-d_-task>
+            </template>
+        </div>
+        </div>
+        <div class="slds-col slds-small-size_1-of-1 slds-large-size_3-of-12 comp-cls">
+            <div class="title-cls">COMPLETED ({compsize})</div>
+            <div class="task-cls">
+            <template for:each={compList} for:item="task">
+                <c-t-d_-task task-rec={task} key={task.Id} data-id={task.Id} oncompsel={handleCompSel} onupdated={handleRefresh}></c-t-d_-task>
+            </template>
+        </div>
+        </div>
+    </div>
+    <template if:true={isLoading}>
+    <lightning-spinner size="medium" variant="brand"></lightning-spinner>
+    </template>
+</template>
+<template if:false={isRecordId}>
+    <lightning-input label="List Name" placeholder="Enter List Name ..." data-id="ListName" required="true"></lightning-input>
+    <lightning-button label="Create List" onclick={handleCreateList}></lightning-button>
+</template>
+</template>
+<template if:true={isError}>
+    <lightning-card>
+        <div class="slds-p-around_medium">COULD NOT FIND WHAT YOU WERE LOOKING FOR ..</div>
+    </lightning-card>
+</template>
+</template>
