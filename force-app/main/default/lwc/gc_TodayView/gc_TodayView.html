@@ -8,7 +8,7 @@
                 <span style="font-size: 1.2rem;font-weight: 500">{item.summary}</span> ({item.xstart.dateString} - {item.xend.dateString})
             </lightning-layout-item>
         </template> -->
-        <lightning-datatable columns={columns} data={todayEvents} key-field="id" hide-checkbox-column></lightning-datatable>
+        <lightning-datatable columns={columns} data={todayEvents} key-field="id" hide-checkbox-column onsave={handleEdit} onrowaction={handleRowAction}></lightning-datatable>
     </lightning-layout>
 </lightning-card>
 </template>

@@ -5,7 +5,7 @@
         <h1>ATMOSPHERE</h1>
     <div class="audio-container slds-grid slds-wrap slds-gutters">
     <div class="focus-timer slds col slds-size_3-of-3">
-        <c-atm_-focus-timer></c-atm_-focus-timer>
+        <c-atm_-focus-timer onfocuscomplete={handleFocusComplete}></c-atm_-focus-timer>
     </div>
     <template for:each={audioUrls} for:item="audio">
         <div key={audio.key} class="audio-single slds-col slds-size_1-of-3">

@@ -26,7 +26,7 @@ public class GoogleCalendarAPI {
         
         HttpResponse res=http.send(req);
         
-            system.debug('STATUS='+res.getStatusCode());
+            system.debug('STATUS='+res.getStatusCode()+' -- '+res.getBody());
             //system.debug(res.getBody());
             String body=res.getBody();
         body=body.replaceAll('start":','xstart":');
@@ -34,7 +34,7 @@ public class GoogleCalendarAPI {
         body=body.replaceAll('dateTime":','xdateTime":');
         Events e=(Events)JSON.deserialize(body,Events.class);
         for(Item i: e.items){
-            system.debug(i.summary+' -- '+i.xstart.xdateTime);
+            system.debug('e.item: '+i);
         }
         /*system.debug('EVENT: '+e);*/
         return e.items;
@@ -48,14 +48,17 @@ public class GoogleCalendarAPI {
         String timeMax=tommDt.year()+'-'+tommDt.month()+'-'+tommDt.day()+'T00:00:00Z';
         String timeMin=todayDt.year()+'-'+todayDt.month()+'-'+todayDt.day()+'T00:00:00Z';
         List<Item> allItems=getEvents(calendarId,timeMin,timeMax);
+        List<Item> finalItems= new List<Item>();
         Item lastItem;
         for(Item i: allItems){
             lastItem=i;
-            system.debug('ITEM: '+i);
+            if(i.summary!=NULL && i.xend!=NULL && i.xstart!=NULL && i.xstart.dateString!=NULL && i.xend.dateString!=NULL){
+                finalItems.add(i);
+            }
         }
         system.debug('Last Item: '+lastItem);
-        system.debug(allItems);
-        return allItems;
+        system.debug(finalItems);
+        return finalItems;
     }
     
     @AuraEnabled
@@ -75,6 +78,44 @@ public class GoogleCalendarAPI {
         req.setMethod('POST');
         req.setBody('{"summary":"'+summary+'","start":{"dateTime":"'+startTimeReq+'","timeZone":"Asia/Kolkata"},"end":{"dateTime":"'+endTimeReq+'","timeZone":"Asia/Kolkata"}}');
         
+        HttpResponse res=http.send(req);
+        system.debug(res.getStatusCode()+' -- '+res.getBody());
+        return String.valueOf(res.getStatusCode());
+    }
+
+
+    @AuraEnabled 
+    public static String editEvent(String eventId, String summary, String startTime, String endTime){
+        system.debug('eventId-> '+eventId);
+        system.debug('summary-> '+summary);
+        system.debug('startTime-> '+startTime);
+        system.debug('endTime-> '+endTime);
+        
+        // String startTimeReq=startTime.format('yyyy-MM-dd','Asia/Kolkata')+'T'+startTime.format('HH:mm:ss.SSSZ','Asia/Kolkata');
+        // String endTimeReq=endTime.format('yyyy-MM-dd','Asia/Kolkata')+'T'+endTime.format('HH:mm:ss.SSSZ','Asia/Kolkata');
+        
+        Http http= new Http();
+        HttpRequest req= new HttpRequest();
+        req.setEndpoint('https://www.googleapis.com/calendar/v3/calendars/'+System.Label.calendarId+'/events/'+eventId);
+        req.setHeader('Content-type', 'application/json');
+        req.setHeader('Authorization','Bearer '+GoogleAPISettings__c.getInstance().Access_Token__c);
+        req.setMethod('PUT');
+        req.setBody('{"summary":"'+summary+'","start":{"dateTime":"'+startTime+'","timeZone":"Asia/Kolkata"},"end":{"dateTime":"'+endTime+'","timeZone":"Asia/Kolkata"}}');
+        
+        HttpResponse res=http.send(req);
+        system.debug(res.getStatusCode()+' -- '+res.getBody());
+        return String.valueOf(res.getStatusCode());
+    }
+
+    @AuraEnabled 
+    public static String deleteEvent(String eventId){
+        Http http= new Http();
+        HttpRequest req= new HttpRequest();
+        req.setEndpoint('https://www.googleapis.com/calendar/v3/calendars/'+System.Label.calendarId+'/events/'+eventId);
+        req.setHeader('Content-type', 'application/json');
+        req.setHeader('Authorization','Bearer '+GoogleAPISettings__c.getInstance().Access_Token__c);
+        req.setMethod('DELETE');
+
         HttpResponse res=http.send(req);
         system.debug(res.getStatusCode()+' -- '+res.getBody());
         return String.valueOf(res.getStatusCode());

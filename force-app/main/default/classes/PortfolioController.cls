@@ -33,7 +33,7 @@ public without sharing class PortfolioController {
     @AuraEnabled(cacheable=true)
     public static Contact getContactDetails(){
         try {
-            return [SELECT Id,Description,Summary__c,Work_Summary__c FROM Contact WHERE Id=: System.Label.contactId LIMIT 1];
+            return [SELECT Id,Description,Summary__c,Work_Summary__c,Other_Details__c FROM Contact WHERE Id=: System.Label.contactId LIMIT 1];
         } catch (Exception e) {
             throw new AuraHandledException(e.getMessage());
         }
@@ -107,6 +107,7 @@ public without sharing class PortfolioController {
         }
         return null;
     }
+
 
     public class scWrapper{
         @AuraEnabled 

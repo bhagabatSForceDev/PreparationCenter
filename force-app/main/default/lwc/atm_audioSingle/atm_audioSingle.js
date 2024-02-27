@@ -8,6 +8,13 @@ export default class Atm_audioSingle extends LightningElement {
 
     isPlaying=false;
 
+    @api parentStop(){
+        console.log('INSIDE '+this.audioCode+' Stop');
+        if(this.isPlaying){
+            this.handlePlay();
+        }
+    }
+
     handlePlay(e){
         let audioFile=this.template.querySelector('.audio-cls');
         let audioCls=this.template.querySelector('.audio-player');

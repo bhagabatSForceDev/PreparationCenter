@@ -14,3 +14,24 @@ p{
     gap: 1rem;
     justify-content: center;
 }
+
+.running-timer{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.running-timer span{
+    font-size: 3rem;
+    color: #ffff;
+    background: black;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.found-timer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

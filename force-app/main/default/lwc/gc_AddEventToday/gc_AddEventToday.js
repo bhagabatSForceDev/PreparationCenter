@@ -10,8 +10,8 @@ export default class Gc_AddEventToday extends LightningModal {
 
     handleSave() {
         console.log('this.summary: '+this.summary);
-        console.log('this.startTime: '+this.startTime);
-        console.log('this.endTime: '+this.endTime);
+        console.log('this.startTime: '+this.startTime+' type->'+typeof(this.startTime));
+        console.log('this.endTime: '+this.endTime+' type->'+typeof(this.endTime));
 
         if(this.summary=='' || !this.startTime || !this.endTime){
             alert('Invalid Details');

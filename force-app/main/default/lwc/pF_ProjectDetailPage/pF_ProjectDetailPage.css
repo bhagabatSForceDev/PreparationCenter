@@ -46,10 +46,9 @@ h1::before{
     font-style: normal;
     color: rgb(255, 255, 255);
     text-decoration: none;
-    font-family: 'Times New Roman', Times, serif;
     font-size: 1rem;
     margin: 1rem;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 .yt-box{
